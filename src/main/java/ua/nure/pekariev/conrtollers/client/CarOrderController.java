@@ -58,10 +58,11 @@ public class CarOrderController extends AbstractController {
 			String content = OrderUtils.createOrderMessage(createdorder);
 			getNotificationService().sendNotificationMessage("catch.the.fish2011@gmail.com", BILL_EMAIL_SUBJECT,
 					content);
+			req.getSession().setAttribute(CURRENT_ACCOUNT, updatedAccount);
 			// updatedAccount.getEmail()
 			resp.sendRedirect("/client/home");
 			req.getSession().removeAttribute("car");
-		} catch (OrderException | ParseException e) {
+		} catch (OrderException | ParseException | ValidationException e) {
 			req.setAttribute(ERROR_MESSAGE, e.getMessage());
 			forwardToPage("/client/newOrder.jsp", req, resp);
 			e.printStackTrace();
