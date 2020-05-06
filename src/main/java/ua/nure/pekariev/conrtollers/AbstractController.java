@@ -90,35 +90,52 @@ public abstract class AbstractController extends HttpServlet {
 	}
 
 	protected Account fillAccountFromRequest(Account account, HttpServletRequest req) {
+		Account newAccount = new Account();
 
 		if (account.getFirstName() == null) {
-			account.setFirstName(req.getParameter("firstName"));
+			newAccount.setFirstName(req.getParameter("firstName"));
+		} else {
+			newAccount.setFirstName(account.getFirstName());
 		}
 
 		if (account.getLastName() == null) {
-			account.setLastName(req.getParameter("lastName"));
+			newAccount.setLastName(req.getParameter("lastName"));
+		} else {
+			newAccount.setLastName(account.getLastName());
 		}
 
 		if (account.getEmail() == null) {
-			account.setEmail(req.getParameter("email"));
+			newAccount.setEmail(req.getParameter("email"));
+		} else {
+			newAccount.setEmail(account.getEmail());
 		}
 
 		if (account.getPassportData() == null) {
-			account.setPassportData(req.getParameter("passportData"));
+			newAccount.setPassportData(req.getParameter("passportData"));
+		} else {
+			newAccount.setPassportData(account.getPassportData());
 		}
 
 		if (account.getPassword() == null) {
-			account.setPassword(req.getParameter("password"));
+			newAccount.setPassword(req.getParameter("password"));
+		} else {
+			newAccount.setPassword(account.getPassword());
 		}
 
 		if (account.getAddress() == null) {
-			account.setAddress(req.getParameter("address"));
+			newAccount.setAddress(req.getParameter("address"));
+		} else {
+			newAccount.setAddress(account.getAddress());
 		}
 
 		if (account.getPhone() == null) {
-			account.setPhone(Long.parseLong(req.getParameter("phone")));
+			newAccount.setPhone(Long.parseLong(req.getParameter("phone")));
+		} else {
+			newAccount.setPhone(account.getPhone());
 		}
-		return account;
+
+		newAccount.setId(account.getId());
+		return newAccount;
 	}
 
 	protected Car fillCarFromRequest(Car car, HttpServletRequest req) throws ValidationException {
