@@ -154,7 +154,7 @@
 	</div>
 </div>
 
-<script src="/static/js/jquery-3.4.1.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 
 <script>
 	$("a.page-link").click(

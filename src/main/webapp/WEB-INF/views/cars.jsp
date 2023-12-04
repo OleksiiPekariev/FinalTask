@@ -110,8 +110,8 @@
 										<tr>
 									</table>
 								</div>
-								<button type="button" class="btn btn-link" data-container="body" data-toggle="popover" data-placement="top"
-									data-content="${car.equipmentInformation}">
+								<button type="button" class="btn btn-link" data-bs-container="body" data-bs-toggle="popover" data-bs-placement="top"
+									data-bs-content="${car.equipmentInformation}">
 									<mytag:message key="page.cars.additional_equipment_information" />
 								</button>
 								<div class="card-footer">
@@ -168,10 +168,13 @@
 	</div>
 	<button type="submit" hidden="true" class="btn btn-primary hidden">Filter</button>
 </form>
-<script src="/static/js/jquery-3.4.1.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script>
 	$(function() {
-		$('[data-toggle="popover"]').popover()
+
+		$('[data-bs-toggle="popover"]').each(function (index, element) {
+			new bootstrap.Popover(element)
+		})
 	})
 
 	$("a.page-link").click(

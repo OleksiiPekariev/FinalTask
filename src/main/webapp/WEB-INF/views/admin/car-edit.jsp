@@ -109,7 +109,7 @@
 		</form>
 	</div>
 </div>
-<script src="/static/js/jquery-3.4.1.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script>
 	// Example starter JavaScript for disabling form submissions if there are invalid fields
 	(function() {

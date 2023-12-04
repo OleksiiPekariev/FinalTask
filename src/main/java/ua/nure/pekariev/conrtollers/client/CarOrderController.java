@@ -62,7 +62,7 @@ public class CarOrderController extends AbstractController {
 			// updatedAccount.getEmail()
 			resp.sendRedirect("/client/home");
 			req.getSession().removeAttribute("car");
-		} catch (OrderException | ParseException | ValidationException e) {
+		} catch (OrderException | ParseException e) {
 			req.setAttribute(ERROR_MESSAGE, e.getMessage());
 			forwardToPage("/client/newOrder.jsp", req, resp);
 			e.printStackTrace();

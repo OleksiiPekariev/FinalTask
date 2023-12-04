@@ -16,6 +16,7 @@ import ua.nure.pekariev.dao.impl.CarsDaoImpl;
 import ua.nure.pekariev.dao.impl.OrderDaoImpl;
 import ua.nure.pekariev.exceptions.ApplicationException;
 import ua.nure.pekariev.services.AdminService;
+import ua.nure.pekariev.services.AsyncGmailNotificationService;
 import ua.nure.pekariev.services.ClientService;
 import ua.nure.pekariev.services.CommonService;
 import ua.nure.pekariev.services.I18nService;
@@ -55,7 +56,7 @@ public final class ApplicationContext {
 		adminService = new AdminSeviceImpl(dataSource, accountDao, carsDao, ordersDao);
 		managerService = new ManagerServiceImpl(dataSource, carsDao, ordersDao);
 		clientService = new ClientServiceImpl(dataSource, ordersDao);
-		notificationService = new AsyncEmailNotificationService();
+		notificationService = new AsyncGmailNotificationService();
 		i18nService = new I18nServiceImpl();
 	}
 

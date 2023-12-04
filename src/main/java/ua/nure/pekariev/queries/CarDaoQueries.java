@@ -47,7 +47,7 @@ public final class CarDaoQueries {
 			+ "AND car_model.id = name_model.id_model AND car_class.id = name_model.id_class "
 			+ "AND car.id IN (SELECT id_car FROM \"order\" WHERE status <= 2) %CAR_NAMES% %CAR_CLASSES%";
 
-	public static final String CREATE_CAR_QUERY = "INSERT INTO car values(nextval('car_seq'), (SELECT name_model.id "
+	public static final String CREATE_CAR_QUERY = "INSERT INTO car (manuf_model_id, state_number, year, rent_value_per_day, equipment_information, air_conditioner, navigation) values((SELECT name_model.id "
 			+ "FROM name_model, car_name, car_model, car_class WHERE name_model.id_name = car_name.id "
 			+ "AND name_model.id_model = car_model.id AND name_model.id_class = car_class.id AND car_name.name = ? AND car_model.model = ?),?,?,?,?,?,?)";
 
